@@ -44,14 +44,14 @@
     'http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}');
   Esri_NatGeoWorldMap.addTo(map)
   // create tree marker
-var treeMarker = L.AwesomeMarkers.icon({
+  var treeMarker = L.AwesomeMarkers.icon({
   icon: 'tree',
   prefix: 'fa',
   markerColor: 'darkgreen',
   iconColor: 'white'});
 
-// add geojson points with tree marker and popup
-var pts = new L.GeoJSON.AJAX('./pts_pinulong.geojson', {
+  // add geojson points with tree marker and popup
+  var pts = new L.GeoJSON.AJAX('./pts_pinulong.geojson', {
   pointToLayer: function (feature, latlng) {
     return L.marker(latlng, {icon: treeMarker});
   },
@@ -61,15 +61,15 @@ var pts = new L.GeoJSON.AJAX('./pts_pinulong.geojson', {
       "at: " + feature.properties.localty + "<br><br>" +
       "for: " + feature.properties.instttn, { maxWidth: 200 });
   }
-});
-pts.addTo(map)
+  });
+  pts.addTo(map)
 
-// add geojson polygons with a style
-var ply = new L.GeoJSON.AJAX('./ply_pinulong.geojson', {
+  // add geojson polygons with a style
+  var ply = new L.GeoJSON.AJAX('./ply_pinulong.geojson', {
   "color": "#ff7800",
   "weight": 5,
   "opacity": 0.65 });
-ply.addTo(map)
+  ply.addTo(map)
 </script>
       </section>
     </div>
